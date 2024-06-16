@@ -1,0 +1,301 @@
+@import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sen:wght@400;500;600;700;800&display=swap");
+
+:root {
+  --primary-color: linear-gradient(
+    270deg,
+    rgb(172, 208, 230) 0%,
+    rgb(86, 191, 233) 64%,
+    rgb(0, 173, 235) 100%
+  );
+  --text-color: rgb(0, 0, 0);
+}
+
+body {
+  width: 100%;
+  height: auto;
+  font-family: "Jost";
+  position: relative;
+}
+main {
+  width: 100%;
+  min-height: 100vh;
+  background: var(--primary-color);
+  position: relative;
+  background-image: url(../images/bg.jpg);
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  background-position: center;
+}
+.steps {
+  width: 100%;
+  height: 100%;
+}
+#step1 .prev {
+  opacity: 0;
+  pointer-events: none;
+}
+.counterContainer {
+  width: auto;
+  height: auto;
+  position: absolute;
+  top: 60px;
+  right: 60px;
+}
+.counter {
+  border-radius: 50%;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 0px 27.52px 4.48px rgba(161, 161, 161, 0.22);
+  width: 140px;
+  height: 140px;
+}
+.counter circle {
+  fill: transparent;
+  stroke: rgb(39, 181, 234);
+  stroke-width: 20px;
+  stroke-dasharray: 471;
+  stroke-dashoffset: 0;
+}
+
+.counterContainer span {
+  font-size: 41px;
+  color: rgb(33, 179, 234);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.options {
+  width: 72%;
+  margin: 0 auto;
+  transform: translateY(150px);
+  z-index: 1000000;
+  position: relative;
+  justify-content: center;
+}
+.option {
+  width: 21%;
+  height: 308px;
+  position: relative;
+  display: grid;
+  place-content: center;
+  margin: 0 25px;
+  padding: 20px;
+  z-index: 100;
+}
+.option input {
+  -webkit-appearance: none;
+  border-radius: 20px;
+  background-color: rgb(255, 255, 255);
+  width: 100%;
+  height: 80%;
+  position: absolute;
+  top: 3rem;
+  left: 0;
+  cursor: pointer;
+}
+.option input::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background: linear-gradient(
+    -3deg,
+    rgb(7, 139, 188) 0%,
+    rgb(4, 156, 212) 64%,
+    rgb(0, 173, 235) 100%
+  );
+  border-radius: inherit;
+  transition: 0.5s all cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.option input:checked:before {
+  height: 100%;
+}
+.option input:checked ~ label {
+  color: rgb(255, 255, 255);
+}
+.option label {
+  font-size: 22px;
+  color: var(--text-color);
+  font-weight: bold;
+  text-align: center;
+  position: relative;
+  pointer-events: none;
+  transition: 0.5s;
+}
+.selected::before {
+  background: linear-gradient(
+    -3deg,
+    rgb(7, 139, 188) 0%,
+    rgb(4, 156, 212) 64%,
+    rgb(0, 173, 235) 100%
+  );
+  color: rgb(255, 255, 255) !important;
+}
+.option::before {
+  content: "X";
+  border-radius: 30px;
+  background-color: rgb(230, 230, 230);
+  width: 140px;
+  height: 53px;
+  position: absolute;
+  bottom: -18px;
+  transition: 0.5s;
+  left: 50%;
+  transform: translate(-50%, 0);
+  display: grid;
+  place-content: center;
+  font-size: 30px;
+  color: var(--text-color);
+  font-weight: bold;
+  text-align: center;
+  z-index: 1;
+  pointer-events: none;
+}
+.option:nth-child(1)::before {
+  content: "A";
+}
+.option:nth-child(2)::before {
+  content: "B";
+}
+.option:nth-child(3)::before {
+  content: "C";
+}
+.option:nth-child(4)::before {
+  content: "D";
+}
+
+.question {
+  background-color: rgb(255, 255, 255);
+  width: 100%;
+  height: 500px;
+  border-top-right-radius: 100px;
+  border-top-left-radius: 100px;
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  padding-bottom: 100px;
+}
+.question::before {
+  content: "";
+  position: absolute;
+  top: 30px;
+  left: 0;
+  width: 100%;
+  height: calc(100% + 20px);
+
+  border-radius: inherit;
+  z-index: 1;
+  background: linear-gradient(
+    90deg,
+    rgb(172, 208, 230) 0%,
+    rgb(86, 191, 233) 64%,
+    rgb(0, 173, 235) 100%
+  );
+  box-shadow: 2.86px 40.9px 46.11px 40.89px rgba(0, 0, 0, 0.66);
+}
+.question .fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100% + 20px);
+  transition: 0.5s;
+  border-radius: inherit;
+  z-index: 1;
+  background: linear-gradient(
+    -3deg,
+    rgb(172, 208, 230) 0%,
+    rgb(86, 191, 233) 64%,
+    rgb(0, 173, 235) 100%
+  );
+  z-index: 0;
+}
+.question > * {
+  position: relative;
+  z-index: 100000000000000000;
+}
+.question h2 {
+  font-size: 30px;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  width: 60%;
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 7rem;
+}
+.nextPrev {
+  position: absolute;
+  top: 57%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  margin: 0 auto;
+  width: 90%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.nextPrev .next {
+  border-radius: 50%;
+  background-color: rgb(181, 181, 181);
+  box-shadow: 0px 0px 29px 0px rgba(0, 0, 0, 0.32);
+  width: 150px;
+  height: 67px;
+  border-radius: 10%;
+  font-size: 30px;
+  color: rgb(226, 226, 226);
+  border: 0;
+  transition: 0.5s;
+}
+.nextPrev button {
+  border-radius: 50%;
+  background-color: rgb(181, 181, 181);
+  box-shadow: 0px 0px 29px 0px rgba(0, 0, 0, 0.32);
+  width: 60px;
+  height: 60px;
+  margin-top: -3rem;
+  border-radius: 50%;
+  font-size: 30px;
+  color: rgb(226, 226, 226);
+  border: 0;
+  margin-right: 4rem;
+  transition: 0.5s;
+}
+
+.nextPrev .prev:hover {
+  transform: translateX(-20px);
+}
+.nextPrev .next:hover,
+.nextPrev .apply:hover {
+  transform: translateX(20px);
+}
+
+.nextPrev .next,
+.nextPrev .apply {
+  background: linear-gradient(
+    270deg,
+    rgb(172, 208, 230) 0%,
+    rgb(86, 191, 233) -10%,
+    rgb(0, 173, 235) 100%
+  );
+}
+#error {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 999999999999999;
+}
+.explanation {
+  position: absolute;
+  top: 4rem;
+  font-size: 19px;
+  font-weight: 500;
+  text-align: center;
+  justify-content: flex-start;
+  left: 15rem;
+}
